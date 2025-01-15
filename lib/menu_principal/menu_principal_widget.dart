@@ -1,25 +1,25 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'menu_principa_model.dart';
-export 'menu_principa_model.dart';
+import 'menu_principal_model.dart';
+export 'menu_principal_model.dart';
 
-class MenuPrincipaWidget extends StatefulWidget {
-  const MenuPrincipaWidget({super.key});
+class MenuPrincipalWidget extends StatefulWidget {
+  const MenuPrincipalWidget({super.key});
 
   @override
-  State<MenuPrincipaWidget> createState() => _MenuPrincipaWidgetState();
+  State<MenuPrincipalWidget> createState() => _MenuPrincipalWidgetState();
 }
 
-class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
-  late MenuPrincipaModel _model;
+class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
+  late MenuPrincipalModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MenuPrincipaModel());
+    _model = createModel(context, () => MenuPrincipalModel());
   }
 
   @override
@@ -65,7 +65,7 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Business Email\nMastery',
+                          'Lingualy App',
                           style: FlutterFlowTheme.of(context)
                               .displayMedium
                               .override(
@@ -77,7 +77,7 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                               ),
                         ),
                         Text(
-                          'Enhance your professional communication skills',
+                          'Improve your skills writing formal emails. ',
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
                                     fontFamily: 'Manrope',
@@ -146,10 +146,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -205,10 +214,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -264,10 +282,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -323,10 +350,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -382,10 +418,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -441,10 +486,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -500,10 +554,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -559,10 +622,19 @@ class _MenuPrincipaWidgetState extends State<MenuPrincipaWidget> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF2797FF),
-                                        size: 20.0,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Escenarios');
+                                        },
+                                        child: const Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF2797FF),
+                                          size: 20.0,
+                                        ),
                                       ),
                                     ],
                                   ),

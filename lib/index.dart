@@ -1,2 +1,3 @@
 // Export pages
-export '/menu_principa/menu_principa_widget.dart' show MenuPrincipaWidget;
+export '/menu_principal/menu_principal_widget.dart' show MenuPrincipalWidget;
+export '/escenarios/escenarios_widget.dart' show EscenariosWidget;

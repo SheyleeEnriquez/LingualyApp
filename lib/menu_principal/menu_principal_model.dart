@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'menu_principa_widget.dart' show MenuPrincipaWidget;
+import 'menu_principal_widget.dart' show MenuPrincipalWidget;
 import 'package:flutter/material.dart';
 
-class MenuPrincipaModel extends FlutterFlowModel<MenuPrincipaWidget> {
+class MenuPrincipalModel extends FlutterFlowModel<MenuPrincipalWidget> {
   @override
   void initState(BuildContext context) {}
 

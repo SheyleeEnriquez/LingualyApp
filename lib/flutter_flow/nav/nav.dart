@@ -32,17 +32,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => null(),
+      errorBuilder: (context, state) => const MenuPrincipalWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => null(),
+          builder: (context, _) => const MenuPrincipalWidget(),
         ),
         FFRoute(
-          name: 'MenuPrincipa',
-          path: '/menuPrincipa',
-          builder: (context, params) => const MenuPrincipaWidget(),
+          name: 'MenuPrincipal',
+          path: '/menuPrincipal',
+          builder: (context, params) => const MenuPrincipalWidget(),
+        ),
+        FFRoute(
+          name: 'Escenarios',
+          path: '/escenarios',
+          builder: (context, params) => const EscenariosWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

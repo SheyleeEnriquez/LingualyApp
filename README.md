@@ -1,4 +1,4 @@
-# Linguly App
+# Lingualy App
 
 A new Flutter project.
 
