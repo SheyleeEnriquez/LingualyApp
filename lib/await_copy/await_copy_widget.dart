@@ -4,19 +4,19 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'await_model.dart';
-export 'await_model.dart';
+import 'await_copy_model.dart';
+export 'await_copy_model.dart';
 
-class AwaitWidget extends StatefulWidget {
-  const AwaitWidget({super.key});
+class AwaitCopyWidget extends StatefulWidget {
+  const AwaitCopyWidget({super.key});
 
   @override
-  State<AwaitWidget> createState() => _AwaitWidgetState();
+  State<AwaitCopyWidget> createState() => _AwaitCopyWidgetState();
 }
 
-class _AwaitWidgetState extends State<AwaitWidget>
+class _AwaitCopyWidgetState extends State<AwaitCopyWidget>
     with TickerProviderStateMixin {
-  late AwaitModel _model;
+  late AwaitCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -25,11 +25,11 @@ class _AwaitWidgetState extends State<AwaitWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AwaitModel());
+    _model = createModel(context, () => AwaitCopyModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 5000));
+      await Future.delayed(const Duration(milliseconds: 3000));
 
       context.pushNamed('MenuPrincipal');
     });

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'await_widget.dart' show AwaitWidget;
+import 'await_copy_widget.dart' show AwaitCopyWidget;
 import 'package:flutter/material.dart';
 
-class AwaitModel extends FlutterFlowModel<AwaitWidget> {
+class AwaitCopyModel extends FlutterFlowModel<AwaitCopyWidget> {
   @override
   void initState(BuildContext context) {}
 
