@@ -48,6 +48,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Escenarios',
           path: '/escenarios',
           builder: (context, params) => const EscenariosWidget(),
+        ),
+        FFRoute(
+          name: 'Login',
+          path: '/login',
+          builder: (context, params) => const LoginWidget(),
+        ),
+        FFRoute(
+          name: 'Registro',
+          path: '/registro',
+          builder: (context, params) => const RegistroWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
