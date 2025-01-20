@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -71,7 +72,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Lingualy',
+                        'Lingualy App',
                         style:
                             FlutterFlowTheme.of(context).displayMedium.override(
                                   fontFamily: 'Outfit',
@@ -82,7 +83,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                       ),
                       Text(
-                        'Mejora tus habilidades de escritura',
+                        'Improve your writing skills',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'Manrope',
                               color: const Color(0xFFE0E0E0),
@@ -100,6 +101,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                 height: MediaQuery.sizeOf(context).height * 0.492,
                 decoration: const BoxDecoration(
                   color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 4.0,
+                      color: Color(0x33000000),
+                      offset: Offset(
+                        0.0,
+                        2.0,
+                      ),
+                    )
+                  ],
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
@@ -114,7 +125,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Iniciar Sesión',
+                        'Log in',
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -132,17 +143,25 @@ class _LoginWidgetState extends State<LoginWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Correo Electrónico',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Manrope',
-                                      color: const Color(0xFF161C24),
-                                      fontSize: 14.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.userTie,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                  Text(
+                                    'User',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ].divide(const SizedBox(width: 10.0)),
                               ),
                               TextFormField(
                                 controller: _model.textController1,
@@ -219,17 +238,25 @@ class _LoginWidgetState extends State<LoginWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Contraseña',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Manrope',
-                                      color: const Color(0xFF161C24),
-                                      fontSize: 14.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    Icons.lock_sharp,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                  Text(
+                                    'Password',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ].divide(const SizedBox(width: 10.0)),
                               ),
                               TextFormField(
                                 controller: _model.textController2,
@@ -317,10 +344,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ].divide(const SizedBox(height: 16.0)),
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          context.pushNamed('Await');
                         },
-                        text: 'Iniciar Sesión',
+                        text: 'Start Learning',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 50.0,
@@ -345,7 +372,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '¿No tienes una cuenta? ',
+                            'Don\'t have an account? ',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -356,17 +383,26 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
-                          Text(
-                            'Regístrate',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Manrope',
-                                  color: const Color(0xFF2797FF),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Registro');
+                            },
+                            child: Text(
+                              'Sign Up',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Manrope',
+                                    color: const Color(0xFF2797FF),
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
                           ),
                         ].divide(const SizedBox(width: 4.0)),
                       ),

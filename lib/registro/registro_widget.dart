@@ -59,7 +59,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                height: 300.0,
+                height: 194.0,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xFF1A237E), Color(0xFF3949AB)],
@@ -77,7 +77,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Lingualy',
+                        'Lingualy App',
                         style:
                             FlutterFlowTheme.of(context).displayMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -88,7 +88,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 ),
                       ),
                       Text(
-                        'Crea tu cuenta para comenzar',
+                        'Create your account to get started',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'Inter',
                               color: const Color(0xFFE0E0E0),
@@ -120,7 +120,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Crear Cuenta',
+                        'Create Account',
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -139,7 +139,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Nombre',
+                                'Name',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -160,12 +160,20 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
-                                        color: const Color(0xFF161C24),
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Inter',
+                                    color: const Color(0xFF161C24),
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    shadows: [
+                                      Shadow(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: const Offset(2.0, 2.0),
+                                        blurRadius: 2.0,
+                                      )
+                                    ],
+                                  ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -209,11 +217,25 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'Inter',
-                                      color: const Color(0xFF161C24),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
+                                  fontFamily: 'Inter',
+                                  color: const Color(0xFF161C24),
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  shadows: [
+                                    Shadow(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      offset: const Offset(2.0, 2.0),
+                                      blurRadius: 3.0,
                                     ),
+                                    Shadow(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      offset: const Offset(2.0, 2.0),
+                                      blurRadius: 2.0,
+                                    )
+                                  ],
+                                ),
                                 minLines: 1,
                                 validator: _model.textController1Validator
                                     .asValidator(context),
@@ -225,7 +247,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Apellido',
+                                'Last Name',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -311,7 +333,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Usuario',
+                                'User',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -396,7 +418,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Contraseña',
+                                'Password',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -492,10 +514,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         ].divide(const SizedBox(height: 16.0)),
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          context.pushNamed('Login');
                         },
-                        text: 'Crear Cuenta',
+                        text: 'Create Account',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 50.0,
@@ -520,7 +542,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '¿Ya tienes una cuenta? ',
+                            'Do you have an account?',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -531,17 +553,26 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
-                          Text(
-                            'Inicia sesión',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: const Color(0xFF2797FF),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Login');
+                            },
+                            child: Text(
+                              'Log in',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: const Color(0xFF2797FF),
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
                           ),
                         ].divide(const SizedBox(width: 4.0)),
                       ),

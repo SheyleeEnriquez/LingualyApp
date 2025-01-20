@@ -32,12 +32,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => const MenuPrincipalWidget(),
+      errorBuilder: (context, state) => const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const MenuPrincipalWidget(),
+          builder: (context, _) => const LoginWidget(),
         ),
         FFRoute(
           name: 'MenuPrincipal',
@@ -58,6 +58,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Registro',
           path: '/registro',
           builder: (context, params) => const RegistroWidget(),
+        ),
+        FFRoute(
+          name: 'Await',
+          path: '/await',
+          builder: (context, params) => const AwaitWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
