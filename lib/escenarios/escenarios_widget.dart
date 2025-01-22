@@ -1,7 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'escenarios_model.dart';
 export 'escenarios_model.dart';
 
@@ -12,10 +14,13 @@ class EscenariosWidget extends StatefulWidget {
   State<EscenariosWidget> createState() => _EscenariosWidgetState();
 }
 
-class _EscenariosWidgetState extends State<EscenariosWidget> {
+class _EscenariosWidgetState extends State<EscenariosWidget>
+    with TickerProviderStateMixin {
   late EscenariosModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -24,6 +29,21 @@ class _EscenariosWidgetState extends State<EscenariosWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 320.0.ms,
+            duration: 1490.0.ms,
+            color: const Color(0x4C3969EF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -79,7 +99,8 @@ class _EscenariosWidgetState extends State<EscenariosWidget> {
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation']!),
                         Text(
                           'Try your best for this email. :)',
                           style:

@@ -1,6 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'menu_principal_model.dart';
 export 'menu_principal_model.dart';
 
@@ -11,15 +13,33 @@ class MenuPrincipalWidget extends StatefulWidget {
   State<MenuPrincipalWidget> createState() => _MenuPrincipalWidgetState();
 }
 
-class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
+class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
+    with TickerProviderStateMixin {
   late MenuPrincipalModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => MenuPrincipalModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 550.0.ms,
+            duration: 1240.0.ms,
+            color: const Color(0x4C3965EF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -75,7 +95,8 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation']!),
                         Text(
                           'Improve your skills writing formal emails. ',
                           style:
@@ -679,7 +700,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Icon(
-                                        Icons.people_outline_sharp,
+                                        Icons.people,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         size: 40.0,

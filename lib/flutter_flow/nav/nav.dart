@@ -58,11 +58,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Registro',
           path: '/registro',
           builder: (context, params) => const RegistroWidget(),
-        ),
-        FFRoute(
-          name: 'AwaitCopy',
-          path: '/awaitCopy',
-          builder: (context, params) => const AwaitCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

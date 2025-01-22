@@ -1,7 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'registro_model.dart';
 export 'registro_model.dart';
 
@@ -12,10 +15,13 @@ class RegistroWidget extends StatefulWidget {
   State<RegistroWidget> createState() => _RegistroWidgetState();
 }
 
-class _RegistroWidgetState extends State<RegistroWidget> {
+class _RegistroWidgetState extends State<RegistroWidget>
+    with TickerProviderStateMixin {
   late RegistroModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -33,6 +39,52 @@ class _RegistroWidgetState extends State<RegistroWidget> {
 
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.185,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 1060.0.ms,
+            color: const Color(0xFF959CB8),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 520.0.ms,
+            begin: 0.125,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: const Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -62,7 +114,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                 height: 194.0,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xFF1A237E), Color(0xFF3949AB)],
+                    colors: [Color(0xFF1A237E), Color(0xCF3940AB)],
                     stops: [0.0, 1.0],
                     begin: AlignmentDirectional(0.0, -1.0),
                     end: AlignmentDirectional(0, 1.0),
@@ -86,17 +138,22 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
-                      ),
-                      Text(
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
+                      GradientText(
                         'Create your account to get started',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'Inter',
-                              color: const Color(0xFFE0E0E0),
+                              color: const Color(0xE6E0E0E0),
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
-                      ),
+                        colors: const [],
+                        gradientDirection: GradientDirection.ltr,
+                        gradientType: GradientType.linear,
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation2']!),
                     ],
                   ),
                 ),
@@ -130,7 +187,8 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation3']!),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -524,7 +582,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           padding: const EdgeInsets.all(8.0),
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF2797FF),
+                          color: const Color(0xFF2F90F7),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
