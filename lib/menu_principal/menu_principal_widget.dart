@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'menu_principal_model.dart';
 export 'menu_principal_model.dart';
 
@@ -526,8 +525,8 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const FaIcon(
-                                          FontAwesomeIcons.solidHandshake,
+                                        const Icon(
+                                          Icons.handshake,
                                           color: Color(0xFF4D4D4D),
                                           size: 40.0,
                                         ),
@@ -680,7 +679,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Icon(
-                                        Icons.people,
+                                        Icons.people_outline_sharp,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         size: 40.0,

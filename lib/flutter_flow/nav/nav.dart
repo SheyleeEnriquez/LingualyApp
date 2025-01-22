@@ -40,7 +40,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, _) => const LoginWidget(),
         ),
         FFRoute(
-          name: 'MenuPrincipal',
+          name: 'menuPrincipal',
           path: '/menuPrincipal',
           builder: (context, params) => const MenuPrincipalWidget(),
         ),

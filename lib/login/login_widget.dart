@@ -1,9 +1,7 @@
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -14,13 +12,10 @@ class LoginWidget extends StatefulWidget {
   State<LoginWidget> createState() => _LoginWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget>
-    with TickerProviderStateMixin {
+class _LoginWidgetState extends State<LoginWidget> {
   late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -32,21 +27,6 @@ class _LoginWidgetState extends State<LoginWidget>
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
-
-    animationsMap.addAll({
-      'textOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(-100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
   }
 
   @override
@@ -144,7 +124,7 @@ class _LoginWidgetState extends State<LoginWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Log in',
+                        'Log In',
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -154,8 +134,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation']!),
+                      ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -163,19 +142,17 @@ class _LoginWidgetState extends State<LoginWidget>
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'User',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(const SizedBox(width: 10.0)),
+                              Text(
+                                'Enter your username:',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Manrope',
+                                      color: const Color(0xFF636F81),
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
                               TextFormField(
                                 controller: _model.textController1,
@@ -252,19 +229,17 @@ class _LoginWidgetState extends State<LoginWidget>
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'Password',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(const SizedBox(width: 10.0)),
+                              Text(
+                                'Enter your password:',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Manrope',
+                                      color: const Color(0xFF636F81),
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
                               TextFormField(
                                 controller: _model.textController2,
@@ -353,7 +328,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('AwaitCopy');
+                          context.pushNamed('menuPrincipal');
                         },
                         text: 'Start Learning',
                         options: FFButtonOptions(

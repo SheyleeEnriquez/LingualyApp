@@ -30,8 +30,10 @@ class _AwaitCopyWidgetState extends State<AwaitCopyWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(milliseconds: 3000));
-
-      context.pushNamed('MenuPrincipal');
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
+      context.pushNamed('menuPrincipal');
     });
 
     animationsMap.addAll({
