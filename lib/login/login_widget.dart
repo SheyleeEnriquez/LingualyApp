@@ -26,7 +26,6 @@ class _LoginWidgetState extends State<LoginWidget>
   bool _isLoading = false;
   String? _errorMessage;
 
-
   final animationsMap = <String, AnimationInfo>{};
 
   @override
@@ -83,7 +82,6 @@ class _LoginWidgetState extends State<LoginWidget>
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 
@@ -92,18 +90,15 @@ class _LoginWidgetState extends State<LoginWidget>
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFF0F5F9),
         body: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
+                width: MediaQuery.sizeOf(context).width,
                 height: 300.0,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -114,12 +109,9 @@ class _LoginWidgetState extends State<LoginWidget>
                   ),
                 ),
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+                  padding: const EdgeInsets.all(24.0),
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         'Lingualy App',
@@ -128,7 +120,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                   fontFamily: 'Outfit',
                                   color: Colors.white,
                                   fontSize: 45.0,
-                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                       ).animateOnPageLoad(
@@ -139,7 +130,6 @@ class _LoginWidgetState extends State<LoginWidget>
                               fontFamily: 'Manrope',
                               color: const Color(0xFFE0E0E0),
                               fontSize: 16.0,
-                              letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
                       ).animateOnPageLoad(
@@ -149,32 +139,18 @@ class _LoginWidgetState extends State<LoginWidget>
                 ),
               ),
               Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
+                width: MediaQuery.sizeOf(context).width,
                 height: MediaQuery.sizeOf(context).height * 0.492,
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 4.0,
-                      color: Color(0x33000000),
-                      offset: Offset(
-                        0.0,
-                        2.0,
-                      ),
-                    )
-                  ],
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0.0),
-                    bottomRight: Radius.circular(0.0),
                     topLeft: Radius.circular(32.0),
                     topRight: Radius.circular(32.0),
                   ),
                 ),
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(32.0, 24.0, 32.0, 24.0),
+                  padding: const EdgeInsets.all(24.0),
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
                         'Log In',
@@ -184,267 +160,67 @@ class _LoginWidgetState extends State<LoginWidget>
                               fontFamily: 'Outfit',
                               color: const Color(0xFF161C24),
                               fontSize: 32.0,
-                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation3']!),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Enter your username:',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Manrope',
-                                      color: const Color(0xFF636F81),
-                                      fontSize: 14.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                              TextFormField(
-                                controller: _model.textController1,
-                                focusNode: _model.textFieldFocusNode1,
-                                autofocus: false,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Manrope',
-                                        color: const Color(0xFF161C24),
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Manrope',
-                                        color: const Color(0xFF161C24),
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0xFFE0E3E7),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  filled: true,
-                                  fillColor: const Color(0xFFF5F7FA),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Manrope',
-                                      color: const Color(0xFF161C24),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                minLines: 1,
-                                keyboardType: TextInputType.emailAddress,
-                                validator: _model.textController1Validator
-                                    .asValidator(context),
-                              ),
-                            ].divide(const SizedBox(height: 8.0)),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Enter your password:',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Manrope',
-                                      color: const Color(0xFF636F81),
-                                      fontSize: 14.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                              TextFormField(
-                                controller: _model.textController2,
-                                focusNode: _model.textFieldFocusNode2,
-                                autofocus: false,
-                                obscureText: !_model.passwordVisibility,
-                                decoration: InputDecoration(
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Manrope',
-                                        color: const Color(0xFF161C24),
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Manrope',
-                                        color: const Color(0xFF161C24),
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0xFFE0E3E7),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  filled: true,
-                                  fillColor: const Color(0xFFF5F7FA),
-                                  suffixIcon: InkWell(
-                                    onTap: () => safeSetState(
-                                      () => _model.passwordVisibility =
-                                          !_model.passwordVisibility,
-                                    ),
-                                    focusNode: FocusNode(skipTraversal: true),
-                                    child: Icon(
-                                      _model.passwordVisibility
-                                          ? Icons.visibility_outlined
-                                          : Icons.visibility_off_outlined,
-                                      size: 22,
-                                    ),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Manrope',
-                                      color: const Color(0xFF161C24),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                minLines: 1,
-                                validator: _model.textController2Validator
-                                    .asValidator(context),
-                              ),
-                            ].divide(const SizedBox(height: 8.0)),
-                          ),
-                        ].divide(const SizedBox(height: 16.0)),
-                      ),
-                      FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('menuPrincipal');
-                          //await _signIn();
-                        },
-                        text: 'Start Learning',
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 50.0,
-                          padding: const EdgeInsets.all(8.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF2797FF),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Manrope',
-                                    color: Colors.white,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                          elevation: 2.0,
-                          borderRadius: BorderRadius.circular(25.0),
+                     TextFormField(
+                        controller: _model.textController1,
+                        focusNode: _model.textFieldFocusNode1,
+                        decoration: const InputDecoration(
+                          labelText: 'Enter your username:',
+                          filled: true,
+                          fillColor: Color(0xFFF5F7FA),
                         ),
+                        style: TextStyle(color: Colors.black), // Color del texto ingresado
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Don\'t have an account? ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Manrope',
-                                  color: const Color(0xFF636F81),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('Registro');
-                            },
-                            child: Text(
-                              'Sign Up',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Manrope',
-                                    color: const Color(0xFF2797FF),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _model.textController2,
+                        focusNode: _model.textFieldFocusNode2,
+                        obscureText: !_model.passwordVisibility,
+                        decoration: InputDecoration(
+                          labelText: 'Enter your password:',
+                          filled: true,
+                          fillColor: const Color(0xFFF5F7FA),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _model.passwordVisibility ? Icons.visibility : Icons.visibility_off,
                             ),
+                            onPressed: () {
+                              setState(() {
+                                _model.passwordVisibility = !_model.passwordVisibility;
+                              });
+                            },
                           ),
-                        ].divide(const SizedBox(width: 4.0)),
+                          labelStyle: TextStyle(color: Colors.black), // Color del texto de la etiqueta
+                        ),
+                        style: TextStyle(color: Colors.black), // Color del texto ingresado
                       ),
-                    ].divide(const SizedBox(height: 24.0)),
+
+                      const SizedBox(height: 24),
+                      if (_errorMessage != null)
+                        Text(
+                          _errorMessage!,
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: _isLoading ? null : _signIn,
+                        child: _isLoading
+                            ? const CircularProgressIndicator()
+                            : const Text('Start Learning'),
+                      ),
+                      const SizedBox(height: 16),
+                      TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/registro'); // Navegar a la ruta de registro
+                      },
+                      child: const Text('Don\'t have an account? Sign Up'),
+                    )
+
+                    ],
                   ),
                 ),
               ),
@@ -455,36 +231,34 @@ class _LoginWidgetState extends State<LoginWidget>
     );
   }
 
-  Future<void> _signIn() async {
+ Future<void> _signIn() async {
+  setState(() {
+    _isLoading = true;
+    _errorMessage = null;
+  });
+
+  final username = _model.textController1.text.trim();
+  final password = _model.textController2.text;
+
+  if (username.isEmpty || password.isEmpty) {
     setState(() {
-      _isLoading = true;
-      _errorMessage = null;
+      _errorMessage = 'Username and password cannot be empty.';
+      _isLoading = false;
     });
-
-    final username = _model.textController1.text.trim();
-    final password = _model.textController2.text;
-
-    if (username.isEmpty || password.isEmpty) {
-      setState(() {
-        _errorMessage = 'Usuario y contraseña no pueden estar vacios.';
-        _isLoading = false;
-      });
-      return;
-    }
-
-    final result = await _authService.signIn(username, password);
-
-    if (result == null) {
-      // Success! Navigate to "menu principal"
-      context.pushNamed('menuPrincipal');
-      //context.go('/menuPrincipal');
-    } else {
-      // Display the error message
-      setState(() {
-        _errorMessage = result;
-        _isLoading = false;
-      });
-    }
+    return;
   }
+
+  final result = await _authService.signIn(username, password);
+
+  if (result == null) {
+    // Redirigir al menú principal
+    Navigator.pushNamed(context, '/menu');
+  } else {
+    setState(() {
+      _errorMessage = result;
+      _isLoading = false;
+    });
+  }
+}
 
 }

@@ -113,12 +113,7 @@ class _RegistroWidgetState extends State<RegistroWidget>
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 194.0,
                 decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF1A237E), Color(0xCF3940AB)],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
+                  color: Color(0xFF1A237E),
                 ),
                 child: Padding(
                   padding:
@@ -140,19 +135,16 @@ class _RegistroWidgetState extends State<RegistroWidget>
                                 ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation1']!),
-                      GradientText(
-                        'Create your account to get started',
-                        style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Inter',
-                              color: const Color(0xE6E0E0E0),
-                              fontSize: 16.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                        colors: const [],
-                        gradientDirection: GradientDirection.ltr,
-                        gradientType: GradientType.linear,
-                      ).animateOnPageLoad(
+                      Text(
+                      'Create your account to get started',
+                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                            fontFamily: 'Inter',
+                            color: const Color(0xE6E0E0E0), // Color que desees
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation2']!),
                     ],
                   ),
@@ -573,7 +565,7 @@ class _RegistroWidgetState extends State<RegistroWidget>
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('Login');
+                          Navigator.pushNamed(context, '/login');
                         },
                         text: 'Create Account',
                         options: FFButtonOptions(
@@ -616,8 +608,8 @@ class _RegistroWidgetState extends State<RegistroWidget>
                             focusColor: Colors.transparent,
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('Login');
+                            onTap: () {
+                              Navigator.pushNamed(context, '/login');
                             },
                             child: Text(
                               'Log in',

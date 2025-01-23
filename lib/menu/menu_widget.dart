@@ -3,8 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'menu_principal_model.dart';
-export 'menu_principal_model.dart';
+import 'menu_model.dart';
+export 'menu_model.dart';
 
 class MenuPrincipalWidget extends StatefulWidget {
   const MenuPrincipalWidget({super.key});
@@ -184,7 +184,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -261,7 +261,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -342,7 +342,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -418,7 +418,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -494,7 +494,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -572,7 +572,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed('Escenarios');
+                                            Navigator.pushNamed(context, '/escenarios');
                                           },
                                           child: const Icon(
                                             Icons.arrow_forward_ios,
@@ -649,7 +649,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -726,7 +726,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Escenarios');
+                                          Navigator.pushNamed(context, '/escenarios');
                                         },
                                         child: const Icon(
                                           Icons.arrow_forward_ios,
@@ -763,7 +763,7 @@ class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget>
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('Login');
+                    Navigator.pushNamed(context, '/login');
                   },
                   child: Material(
                     color: Colors.transparent,
