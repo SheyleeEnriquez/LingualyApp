@@ -31,6 +31,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
+    namespace "com.mycompany.lingualyapp"
     compileSdkVersion 34
     
 
@@ -43,10 +44,15 @@ android {
         checkReleaseBuilds false
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.mycompany.lingualyapp"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

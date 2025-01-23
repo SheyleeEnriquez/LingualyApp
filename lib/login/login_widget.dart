@@ -1,3 +1,4 @@
+import '../Amplify/AuthService.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -19,6 +20,12 @@ class _LoginWidgetState extends State<LoginWidget>
   late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final AuthService _authService = AuthService();
+
+  bool _isLoading = false;
+  String? _errorMessage;
+
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -376,6 +383,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('menuPrincipal');
+                          //await _signIn();
                         },
                         text: 'Start Learning',
                         options: FFButtonOptions(
@@ -446,4 +454,37 @@ class _LoginWidgetState extends State<LoginWidget>
       ),
     );
   }
+
+  Future<void> _signIn() async {
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+    });
+
+    final username = _model.textController1.text.trim();
+    final password = _model.textController2.text;
+
+    if (username.isEmpty || password.isEmpty) {
+      setState(() {
+        _errorMessage = 'Usuario y contraseña no pueden estar vacios.';
+        _isLoading = false;
+      });
+      return;
+    }
+
+    final result = await _authService.signIn(username, password);
+
+    if (result == null) {
+      // Success! Navigate to "menu principal"
+      context.pushNamed('menuPrincipal');
+      //context.go('/menuPrincipal');
+    } else {
+      // Display the error message
+      setState(() {
+        _errorMessage = result;
+        _isLoading = false;
+      });
+    }
+  }
+
 }
