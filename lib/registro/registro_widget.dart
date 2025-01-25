@@ -383,6 +383,91 @@ class _RegistroWidgetState extends State<RegistroWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
+                                'Email',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: const Color(0xFF161C24),
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                              TextFormField(
+                                controller: _model.textController3,
+                                focusNode: _model.textFieldFocusNode3,
+                                autofocus: false,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: const Color(0xFF161C24),
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: const Color(0xFF161C24),
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFE0E3E7),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: const Color(0xFFF5F7FA),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: const Color(0xFF161C24),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                                minLines: 1,
+                                validator: _model.textController3Validator
+                                    .asValidator(context),
+                              ),
+                            ].divide(const SizedBox(height: 8.0)),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
                                 'User',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -563,69 +648,27 @@ class _RegistroWidgetState extends State<RegistroWidget>
                           ),
                         ].divide(const SizedBox(height: 16.0)),
                       ),
-                      FFButtonWidget(
-                        onPressed: () async {
-                          Navigator.pushNamed(context, '/login');
-                        },
-                        text: 'Create Account',
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 50.0,
-                          padding: const EdgeInsets.all(8.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF2F90F7),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.white,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                          elevation: 2.0,
-                          borderRadius: BorderRadius.circular(25.0),
+                     TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/');
+                      },
+                      child: Text('Create Account'),
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color(0xFF2F90F7),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Do you have an account?',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: const Color(0xFF636F81),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () {
-                              Navigator.pushNamed(context, '/login');
-                            },
-                            child: Text(
-                              'Log in',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: const Color(0xFF2797FF),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ),
-                        ].divide(const SizedBox(width: 4.0)),
-                      ),
+                    ),
+
+                      TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/'); // Navegar a la ruta de registro
+                      },
+                      child: const Text('Do you have an account? Sign Up'),
+                    )
                     ].divide(const SizedBox(height: 24.0)),
                   ),
                 ),

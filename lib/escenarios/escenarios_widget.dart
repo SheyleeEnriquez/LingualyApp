@@ -242,10 +242,7 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
                             ),
                             FFButtonWidget(
                               onPressed: () async {
-                                if (Navigator.of(context).canPop()) {
-                                  context.pop();
-                                }
-                                Navigator.pushNamed(context, '/menu_principal');
+                              Navigator.of(context).pushReplacementNamed('/menu');
                               },
                               text: 'Back',
                               options: FFButtonOptions(

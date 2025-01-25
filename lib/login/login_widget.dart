@@ -168,9 +168,10 @@ class _LoginWidgetState extends State<LoginWidget>
                         controller: _model.textController1,
                         focusNode: _model.textFieldFocusNode1,
                         decoration: const InputDecoration(
-                          labelText: 'Enter your username:',
+                          labelText: 'Enter your username or email:',
                           filled: true,
                           fillColor: Color(0xFFF5F7FA),
+                          labelStyle: TextStyle(color: Colors.black),
                         ),
                         style: TextStyle(color: Colors.black), // Color del texto ingresado
                       ),
