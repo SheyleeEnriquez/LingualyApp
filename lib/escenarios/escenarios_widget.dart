@@ -190,6 +190,7 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
                                             .override(
                                               fontFamily: 'Inter',
                                               letterSpacing: 0.0,
+                                              color: Colors.black,
                                             ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
@@ -201,6 +202,7 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
                                           .override(
                                             fontFamily: 'Inter',
                                             letterSpacing: 0.0,
+                                            color: Colors.black,
                                           ),
                                       maxLines: 12,
                                       minLines: 8,

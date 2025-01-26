@@ -1,10 +1,41 @@
 import 'package:flutter/material.dart';
 
-class MenuPrincipalWidget extends StatelessWidget {
+class MenuPrincipalWidget extends StatefulWidget {
   const MenuPrincipalWidget({Key? key}) : super(key: key);
 
   @override
+  State<MenuPrincipalWidget> createState() => _MenuPrincipalWidgetState();
+}
+
+class _MenuPrincipalWidgetState extends State<MenuPrincipalWidget> {
+  bool _isInitialLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 4), () {
+      setState(() {
+        _isInitialLoading = false;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (_isInitialLoading) {
+      return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        body: Center(
+          child: Image.asset(
+            'assets/images/letter.gif',
+            width: 300,
+            height: 300,
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xFFF0F5F9),
       body: SafeArea(
