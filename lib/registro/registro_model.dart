@@ -17,11 +17,15 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
+   FocusNode? textFieldFocusNode4;
   TextEditingController? textController4;
-  late bool passwordVisibility;
   String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode5;
+  TextEditingController? textController5;
+  late bool passwordVisibility;
+  String? Function(BuildContext, String?)? textController5Validator;
+
 
   @override
   void initState(BuildContext context) {
@@ -41,5 +45,7 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
 
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
+    textFieldFocusNode5?.dispose();
+    textController5?.dispose();
   }
 }

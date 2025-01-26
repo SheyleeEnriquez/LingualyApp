@@ -40,6 +40,9 @@ class _RegistroWidgetState extends State<RegistroWidget>
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
+    _model.textController5 ??= TextEditingController();
+    _model.textFieldFocusNode5 ??= FocusNode();
+
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -359,8 +362,8 @@ class _RegistroWidgetState extends State<RegistroWidget>
                                       ),
                                 ),
                                 TextFormField(
-                                  controller: _model.textController3,
-                                  focusNode: _model.textFieldFocusNode3,
+                                  controller: _model.textController4,
+                                  focusNode: _model.textFieldFocusNode4,
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -390,7 +393,7 @@ class _RegistroWidgetState extends State<RegistroWidget>
                                       letterSpacing: 0.0,
                                     ),
                                 minLines: 1,
-                                validator: _model.textController3Validator
+                                validator: _model.textController4Validator
                                     .asValidator(context),
                               ),
                             ].divide(const SizedBox(height: 8.0)),
@@ -413,8 +416,8 @@ class _RegistroWidgetState extends State<RegistroWidget>
                                       ),
                                 ),
                                 TextFormField(
-                                  controller: _model.textController4,
-                                  focusNode: _model.textFieldFocusNode4,
+                                  controller: _model.textController5,
+                                  focusNode: _model.textFieldFocusNode5,
                                   autofocus: false,
                                   obscureText: !_model.passwordVisibility,
                                   decoration: InputDecoration(
@@ -456,7 +459,7 @@ class _RegistroWidgetState extends State<RegistroWidget>
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                       ),
-                                  validator: _model.textController4Validator
+                                  validator: _model.textController5Validator
                                       .asValidator(context),
                                 ),
                               ].divide(const SizedBox(height: 8.0)),
