@@ -490,7 +490,7 @@ class _RegistroWidgetState extends State<RegistroWidget>
                                 onPressed: () {
                                   Navigator.pushNamed(context, '/');
                                 },
-                                child: const Text('Do you have an account? Sign Up'),
+                                child: const Text('Do you have an account? Log In'),
                               ),
                             ],
                           ),
