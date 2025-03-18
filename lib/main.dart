@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:provider/provider.dart';
+import 'Amplify/AuthService.dart';
 import 'amplifyconfiguration.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -15,7 +17,14 @@ void main() async {
   await FlutterFlowTheme.initialize();
   await configureAmplify();
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<AuthService>(create: (_) => AuthService()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -62,7 +71,6 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => const LoginWidget(),
         '/menu': (context) => const MenuPrincipalWidget(),
         '/registro': (context) => const RegistroWidget(),
-        '/escenarios': (context) => const EscenariosWidget(),
       },
     );
   }

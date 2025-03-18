@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lingualy_app/Amplify/AuthService.dart';
 import 'package:provider/provider.dart';
-
+import '../../confirm_code/confimation_code_widget.dart';
+import '../../reset_password/reset_password_widget.dart';
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -37,18 +39,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const LoginWidget(),
+          builder: (context, _) {
+            final authService = Provider.of<AuthService>(context, listen: false);
+            return FutureBuilder<bool>(
+              future: authService.isUserSignedIn(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator()); // Pantalla de carga temporal
+                }
+                if (snapshot.hasData && snapshot.data == true) {
+                  return const MenuPrincipalWidget();
+                } else {
+                  return const LoginWidget();
+                }
+              },
+            );
+          },
         ),
         FFRoute(
           name: 'menuPrincipal',
           path: '/menuPrincipal',
           builder: (context, params) => const MenuPrincipalWidget(),
         ),
-        FFRoute(
-          name: 'Escenarios',
-          path: '/escenarios',
-          builder: (context, params) => const EscenariosWidget(),
-        ),
+
         FFRoute(
           name: 'Login',
           path: '/login',
@@ -58,7 +71,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Registro',
           path: '/registro',
           builder: (context, params) => const RegistroWidget(),
-        )
+        ),
+        FFRoute(
+          name: 'ConfirmarCodigoSignUp',
+          path: '/confirmar_codigo_signup/:username/:email',
+          builder: (context, params) {
+            final username = params.getParam<String>('username', ParamType.String);
+            final email = params.getParam<String>('email', ParamType.String);
+            return ConfirmationCodeWidget(username: username ?? '', email: email ?? '');
+          },
+        ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 

@@ -1,3 +1,6 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+
+import '../Amplify/AuthService.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,9 +9,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'escenarios_model.dart';
 export 'escenarios_model.dart';
+import 'package:http/http.dart' as http;
 
 class EscenariosWidget extends StatefulWidget {
-  const EscenariosWidget({super.key});
+  final String title;
+  final String description;
+  final String id; // Puede ser int si lo manejas como número
+
+  const EscenariosWidget({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.id,
+  }) : super(key: key);
 
   @override
   State<EscenariosWidget> createState() => _EscenariosWidgetState();
@@ -21,6 +34,14 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = <String, AnimationInfo>{};
+
+  Map<String, dynamic> _userInfo = {};
+  final AuthService _authService = AuthService();
+
+  String? correctedAnswer;
+  String? score;
+  String? tone;
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -45,6 +66,56 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
       ),
     });
   }
+
+  Future<void> submitAnswer() async {
+    final userInfo = await _authService.getUserInfo();
+
+    setState(() {
+      _userInfo = userInfo;
+      isLoading = true;
+    });
+
+    try {
+      final uri = Uri.parse('http://lingualyapp.us-east-2.elasticbeanstalk.com/api/corrections');
+
+      final response = await http.post(
+        uri,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'userId': _userInfo['userId'],
+          'scenarioId': int.parse(widget.id),
+          'userAnswer': _model.textController?.text ?? '',
+        }),
+      );
+
+      if (response.statusCode == 201) {
+        final data = jsonDecode(response.body);
+        setState(() {
+          correctedAnswer = data['data']['corrected_answer'];  // Need to access 'data' first
+          score = data['data']['readability_score'];           // Need to access 'data' first
+          tone = (data['data']['tones'] as List).join(', ');
+        });
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Correction received.')),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          //SnackBar(content: Text('Conexión exitosa, pero error en la respuesta (${response.statusCode}).')),
+          SnackBar(content: Text('Theres are some errors in the system. Please try later.')),
+        );
+      }
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error de conexión: $error')),
+      );
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+  }
+
 
   @override
   void dispose() {
@@ -146,25 +217,21 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Meeting Request',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .override(
-                                          fontFamily: 'Inter Tight',
-                                          color: const Color(0xFF161C24),
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                    widget.title, // Usamos el título dinámico
+                                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                      fontFamily: 'Inter Tight',
+                                      color: const Color(0xFF161C24),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                   Text(
-                                    'You need to schedule an important meeting with the development team to discuss the progress of the project. Write a professional email requesting the meeting for next Tuesday at 10:00 AM.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: const Color(0xFF636F81),
-                                          letterSpacing: 0.0,
-                                        ),
+                                    widget.description, // Usamos la descripción dinámica
+                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                      fontFamily: 'Inter',
+                                      color: const Color(0xFF636F81),
+                                      letterSpacing: 0.0,
+                                    ),
                                   ),
                                   Container(
                                     width:
@@ -220,10 +287,8 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                              },
-                              text: 'Review',
+                              onPressed: isLoading ? null : submitAnswer,
+                              text: isLoading ? 'Reviewing...' : 'Review',
                               options: FFButtonOptions(
                                 width: 150.0,
                                 height: 50.0,
@@ -271,6 +336,78 @@ class _EscenariosWidgetState extends State<EscenariosWidget>
                             ),
                           ],
                         ),
+                        const SizedBox(height: 20.0),
+
+                        Row(
+                          children: [
+                            const Icon(Icons.check_circle_outline, color: Color(0xFF1A73E8), size: 24),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Corrected Answer:',
+                              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Inter Tight',
+                                color: const Color(0xFF1A73E8),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Card(
+                          color: Colors.white,
+                          elevation: 3,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              correctedAnswer ?? 'No correction available',
+                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Inter',
+                                fontSize: 16,
+                                color: Colors.black87,
+                              ),
+                              textAlign: TextAlign.justify,
+                            ),
+                          ),
+                        ),
+
+
+                        const SizedBox(height: 10.0),
+
+                        Row(
+                          children: [
+                            const Icon(Icons.star_border, color: Color(0xFFFFA726), size: 24),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Score: ${score ?? "N/A"}',
+                              style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                fontFamily: 'Inter Tight',
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFFFA726),
+                              ),
+                            ),
+                          ],
+                        ),
+
+
+                        const SizedBox(height: 10.0),
+
+                        Row(
+                          children: [
+                            const Icon(Icons.palette_outlined, color: Color(0xFF43A047), size: 24),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Tone: ${tone?.isNotEmpty == true ? tone : "N/A"}',
+                              style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                fontFamily: 'Inter Tight',
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF43A047),
+                              ),
+                            ),
+                          ],
+                        ),
+
+
                       ].divide(const SizedBox(height: 24.0)),
                     ),
                   ),

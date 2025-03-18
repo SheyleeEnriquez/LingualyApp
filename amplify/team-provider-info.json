@@ -19,6 +19,9 @@
           "webClientId": "2omdpmh5a5r61hjqqagdrvth4j",
           "nativeClientId": "2omdpmh5a5r61hjqqagdrvth4j"
         }
+      },
+      "function": {
+        "scenariosService": {}
       }
     }
   }
