@@ -1,6 +1,6 @@
 ## 🌟 **LingualyApp** - Aprendizaje de Idiomas con Flutter  
 
-**LingualyApp** es una aplicación móvil desarrollada con **Flutter** para facilitar el aprendizaje de idiomas. La aplicación ofrece autenticación de usuarios y almacenamiento en la nube utilizando **AWS Amplify** y **Amazon Cognito**.  
+**LingualyApp** es una aplicación móvil desarrollada con **Flutter** para ayudar a los usuarios a mejorar su redacción de correos electrónicos en inglés en espacios profesionales. La aplicación ofrece autenticación de usuarios y almacenamiento en la nube utilizando **AWS Amplify**, **Amazon Cognito** y **Amazon Elastic Beanstalk** (este último usado en el backend de la aplicación).  
 
 > 📢 **Nota**: Este repositorio contiene únicamente el frontend de la aplicación. El backend está alojado en otro repositorio (https://github.com/SilviaAnasco-ESPE/LingualyApp_Backend.git). Además, este repositorio no incluye configuraciones de AWS por seguridad. Para ejecutarlo, necesitarás configurar tu propio servicio en AWS siguiendo las instrucciones más abajo.  
 
