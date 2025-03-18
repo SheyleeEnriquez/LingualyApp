@@ -1,8 +1,8 @@
-## 📱 **LingualyApp** - Aprendizaje de Idiomas con Flutter  
+## 🌟 **LingualyApp** - Aprendizaje de Idiomas con Flutter  
 
 **LingualyApp** es una aplicación móvil desarrollada con **Flutter** para facilitar el aprendizaje de idiomas. La aplicación ofrece autenticación de usuarios y almacenamiento en la nube utilizando **AWS Amplify** y **Amazon Cognito**.  
 
-> 📢 **Nota**: Este repositorio no incluye configuraciones de AWS por seguridad. Para ejecutarlo, necesitarás configurar tu propio servicio en AWS siguiendo las instrucciones más abajo.  
+> 📢 **Nota**: Este repositorio contiene únicamente el frontend de la aplicación. El backend está alojado en otro repositorio (https://github.com/SilviaAnasco-ESPE/LingualyApp_Backend.git). Además, este repositorio no incluye configuraciones de AWS por seguridad. Para ejecutarlo, necesitarás configurar tu propio servicio en AWS siguiendo las instrucciones más abajo.  
 
 ---
 
@@ -26,22 +26,25 @@
 
 ## 🚀 **Instalación y Configuración**  
 
-### 1⃣ **Clonar el Repositorio**  
+### 1️⃣ **Clonar el Repositorio**  
 ```sh
 git clone https://github.com/usuario/lingualyapp.git
 cd lingualyapp
 ```
 
-### 2⃣ **Instalar Dependencias**  
+### 2️⃣ **Instalar Dependencias**  
 ```sh
 flutter pub get
 ```
 
-### 3⃣ **Configurar AWS Amplify y Cognito**  
-Como este repositorio **no incluye las configuraciones de AWS**, sigue los pasos en la página https://docs.amplify.aws/gen1/flutter/start/getting-started/installation/ para configurar AWS Amplify y los pasos en https://docs.amplify.aws/gen1/flutter/build-a-backend/auth/set-up-auth/ para la configuración de AWS Cognito.
+### 3️⃣ **Configurar AWS Amplify y Cognito**  
+Como este repositorio **no incluye las configuraciones de AWS**, sigue los pasos en:
+🔹 https://docs.amplify.aws/gen1/flutter/start/getting-started/installation/ para configurar AWS Amplify.
+🔹 https://docs.amplify.aws/gen1/flutter/build-a-backend/auth/set-up-auth/ para la configuración de AWS Cognito.
 
 ## 📌 **Consideraciones Importantes**  
 
+🔹 **Este repositorio solo contiene el frontend de la aplicación**. El backend se encuentra en otro repositorio (https://github.com/SilviaAnasco-ESPE/LingualyApp_Backend.git).
 🔹 **Este repositorio NO incluye configuraciones de AWS** (Cognito, Amplify, etc.), ya que están en **.gitignore** por seguridad.  
 🔹 Si deseas contribuir o desplegar el proyecto, **debes configurar tu propio backend en AWS**.  
 
@@ -68,7 +71,7 @@ Como este repositorio **no incluye las configuraciones de AWS**, sigue los pasos
 
 ---
 
-## 📧 **Contacto**  
+## 💎 **Contacto**  
 
 Si tienes dudas o sugerencias, abre un **issue** en GitHub o contacta con el equipo de desarrollo.  
 
